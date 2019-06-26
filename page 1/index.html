@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<meta charset="utf-8"/>
+<html>
+<head>
+
+	<style>
+	body {
+  		width: 70%;
+	}
+
+	img {
+		margin-left: 15%;
+    	width: 100%;
+  		border: 1px solid gray;
+	}
+	p,h2,a {
+		margin-left: 15%;
+		text-align: justify;
+    	text-justify: inter-word;
+	}
+	svg {
+  		border: 1px solid gray;
+	}
+	</style>
+<title>Homework 2: Irvin Low</title>
+<h1>Homework 2: Use Tableau to Create a Visualization</h1>
+<h2>By: Irvin Low</h2>
+</head>
+<body>
+
+
+
+<p><img src="cover.png" alt="" /></p>
+<h2>What is the dataset you are showing (link where you got it from). </h2>
+<p>Annual Rate for Government Technology Department Employees in Louisville Between 2015 to 2017.</p>
+<a href="https://data.louisvilleky.gov/dataset/employee-salary-data">Source</a>
+<h2>Describe how are showing the data (i.e., what are your design choices?).</h2>
+<p>The data is a bar graph of job title vs annual rate sorted in ascending order from least to most. The marks are rectangles, and the channel is the length of the rectangle. The color doesn't really have any representation, it was the default color.
+The only labels are the axes which are the annual rate on the vertical axis, and the job title on the horizontal axis. </p>
+<h2>A brief rationale for why you are showing it the way you are.</h2> 
+<p>The goal was to compare the average of how much money the each job paid, while fitting as much data onto a single page without having to scroll to see all the data. </p>
+<h2>Finally, state if you feel your visualization is successful at showing the data. If not, how could it be improved?</h2>
+<p> I think the visualization works, but is a bit cluttered, especially with the labeling of the job titles on the lower axis. One way to improve it would be to allow for some interactivity, and when the user hovers over a bar, it can highlight the labeling at the bottom to show which job title the bar represents. </p>
+
+<h2> D3 Chart </h2>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="main.js"></script>
+<svg width="1820" height="800"> 
+</svg>
+
+</body>
+</html>

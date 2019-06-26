@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<meta charset="utf-8"/>
+<html>
+<head>
+
+	<style>
+	body {
+  		width: 100%;
+	}
+	title{
+		margin-left: 50%
+		}
+	img {
+		margin-left: 15%;
+    	width: 100%;
+  		border: 1px solid gray;
+	}
+	p,h2,h1 {
+		margin-left: 15%;
+		margin-right: 20%;
+		text-align: justify;
+    	text-justify: inter-word;
+	}
+	svg {
+		margin:auto;
+		display: block;
+  		border: 1px solid gray;
+		pointer-events: all;
+	}
+	#myTooltip {
+	position: absolute;
+	border: 1px solid black;
+	border-radius: 5px;
+	overflow-x: visible;
+	overflow-y: visible;
+	background-color: lightgrey;
+	}
+	.venntooltip {
+	position: absolute;
+	border: 1px solid black;
+	border-radius: 5px;
+	overflow-x: visible;
+	overflow-y: visible;
+	background-color: lightgrey;
+	}
+	.treeselect{
+    text-align: center;
+	}
+	.line {
+	  fill: none;
+	  stroke: steelblue;
+	  stroke-width: 2px;
+	}
+	.line2 {
+	  fill: none;
+	  stroke: #b97d4b;
+	  stroke-width: 2px;
+	}
+	rect {
+        stroke: white;
+        stroke-width: 2px;
+    }
+
+	</style>
+<title>Project 1: Irvin Low</title>
+<h1>Stack Overflow Survey Analysis (tentative title)</h1>
+<h2>By: Irvin Low</h2>
+</head>
+<body>
+<h2>Introduction</h2>
+<p> The
+<a href="https://www.kaggle.com/stackoverflow/so-survey-2017/data" style="target":"_blank">dataset</a>
+ comes from Kaggle.com, and is the results from a survey done by StackOverflow to determine
+the background and preferences of StackOverflow members. The data was published in 2017 and consists of over 35,000 entries.<p/>
+<h2>Question 1: Does the degree level obtained correlate with the job seeking status of the surveyed person? </h2>
+<script src="d3.v4.min.js"></script>
+<script src="main.js"></script>
+<script src="venn.js"></script>
+<div id='myTooltip' ></div>
+<svg class="first">
+</svg>
+<p> The chart compares people's degree level obtained and current job seeking status.
+The color represents the job seeking status of each bar segment.
+The size is relative to the actual amount of people and log^2 scaled (base e), whereas the number indicates the percentage within the degree level group.
+Hovering over a bar will show the degree level, job seeking status, and the actual number of people in each category. <p>
+<h2> Analysis </h2>
+<p>  
+What this graph shows though, is that among the surveyed people the four largest groups of people using StackOverFlow are those with Master's/Bachelor's Degree, some college, or
+ secondary school education. The percentage between each group is pretty close, especially between those actively looking for a job, which means among those surveyed there is a 
+ large amount of people with some form of higher education still actively looking for a job.
+The bar chart was chosen because it is a good way to depict the differences in sizes between the 9 groups (degree level) and the 4 subgroups.
+There is a large amount of people who filed NA in this graph, for my next analysis I want to look at why people selected "NA" or "Actively seeking job" as their job seeking status.
+</p> 
+<h2>Question 2: Of those who are not actively looking for a job, what are their employment statuses?</h2>
+
+<p class="tree1">
+	<div class="treeselect">
+	<label><input class="p0" id="checkBox" type="checkbox" autocomplete="off" onclick="treeonclick('p0')" checked > Secondary School </input></label>
+	<label><input class="p1" id="checkBox" type="checkbox" autocomplete="off" onclick="treeonclick('p1')"> Some college </input></label>
+	<label><input class="p2" id="checkBox" type="checkbox" autocomplete="off" onclick="treeonclick('p2')"> Bachelor's </input></label>
+	<label><input class="p3" id="checkBox" type="checkbox" autocomplete="off" onclick="treeonclick('p3')"> Doctoral </input></label>
+	<label><input class="p4" id="checkBox" type="checkbox" autocomplete="off" onclick="treeonclick('p4')"> Masters' </input></label>
+	<label><input class="p5" id="checkBox" type="checkbox" autocomplete="off" onclick="treeonclick('p5')"> Professional </input></label>
+	<label><input class="p6" id="checkBox" type="checkbox" autocomplete="off" onclick="treeonclick('p6')"> Primary/Elementary School </input></label>
+	<label><input class="p7" id="checkBox" type="checkbox" autocomplete="off" onclick="treeonclick('p7')"> Prefer not to answer </input></label>
+	<label><input class="p8" id="checkBox" type="checkbox" autocomplete="off" onclick="treeonclick('p8')"> No formal edu </input></label>
+
+	</div>
+</p>
+<p> 
+The treemap chart depicts filtered data (no longer includes "not actively seeking a job") from the previous question with a new measure, their employment status.
+The size of the rect shows a quick comparison of size of each group. The number represents the actual percentage of the groups' total.
+The color represents the Job seeking status of each rectangle.
+</p>
+<h2> Analysis </h2>
+<p>
+For each of the degree levels, a huge majority are employed in some form, and hence are not looking for a job.
+For those with degree's they are almost twice as likely to be employed and not looking for a job.
+We also see that in the groups who have obtained some form of degree education that the second largest group are those looking for a job, despite already having some full time employment.
+I chose a treemap for this because treemaps shows both how the "NA" group is larger than the "actively seeking job" and the size between each employment status.
+The total number of people doesn't need to be represented visually since we are only interested in looking at one specific degree level at a time.
+For the next visualization I want to see job seeking status in relationship to major.
+</p>
+<h2> Question 3: How many of those searching for a job have majors related to computer?</h2>
+<p class="notabargraph"></p>
+<p>
+This Venn diagram shows the amount of people in a given major, (primarily focusing on majors related to computers) and how many are still looking for a job. 
+This includes people who's job seeking status is "actively looking for work" or employment status is "not employed, but looking for work"
+The size represents the number of people within a given major/looking for work. Overlapping area between major and job seeking is the amount of people looking for work in the given major.
+The color represents the the different majors, and hovering over the circles and overlapping area will tell you the amount of people within the given set as well as percentages.
+</p>
+<h2> Analysis </p>
+<p>The visualization shows that roughly 10% of those in the given major are still looking for jobs.
+This is particularly bad for those in CS majors, because while only 10% of people in the CS major are actively looking for jobs, that makes up 50% of the people who are looking for jobs.
+In other words, theres a huge amount of competition for CS majors.
+Of course, the data is only from people who use StackOverFlow, and we are assuming difference in major sizes stays consistent.
+I chose a Venn diagram for this visualization, because it fits well with comparing the size of majors and those searching jobs for jobs, as well as showing the overlaps.
+Next, I want to check programming experience of those looking for jobs.
+</p>
+<h2> Question 4: How does the years of experience programming relate to job-seeking status?</h2>
+<p class="linegraph"></p>
+<p>
+The linegraph shows two lines, those seeking a job in blue, and those who are not in an orangeish color.
+The axis, the years of experience (lower bound), is the lower end of the number of years the surveyed person has done programming.
+Hovering over the points will show the job seek status, years of exp, and number of people.</p>
+<h2> Analysis</h2>
+
+
+
+</body>
+</html>
